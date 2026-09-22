@@ -1,0 +1,26 @@
+weathergpt/
+├── app/
+│   ├── __init__.py
+│   ├── main.py
+│   ├── config.py
+│   ├── database.py
+│   ├── models.py
+│   ├── schemas.py
+│   ├── services/
+│   │   ├── __init__.py
+│   │   ├── weather_engine.py
+│   │   ├── cache_service.py
+│   │   ├── agent_service.py
+│   │   └── alert_verifier.py
+│   └── routers/
+│       ├── __init__.py
+│       ├── chat.py
+│       └── alerts.py
+├── .env.example
+├── requirements.txt
+└── README.md
+
+
+
+
+

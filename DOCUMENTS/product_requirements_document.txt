@@ -1,0 +1,133 @@
+================================================================================
+PRODUCT REQUIREMENTS DOCUMENT (PRD)
+Project: WeatherGPT - Conversational AI for Weather Forecasting & Disaster Alerts
+Problem Statement ID: 26068 | Organization: Ministry of Earth Sciences (MoES) / IMD
+Target Competition: Smart India Hackathon (SIH)
+Priority Pillars: 1. Security | 2. Reliability & Accuracy | 3. Scalability & Cost-Effectiveness
+================================================================================
+
+1. EXECUTIVE SUMMARY & VISION
+--------------------------------------------------------------------------------
+WeatherGPT is an intelligent, voice-first, multilingual conversational platform 
+designed to unify India's fragmented meteorological datasets (IMD AWS telemetry, 
+Doppler Weather Radars, INSAT-3D/3DR satellite products, and NWP models like 
+GFS/WRF/NCUM) into actionable, hyper-local natural language intelligence.
+
+During extreme weather crises (cyclones, cloudbursts, heatwaves, flash floods), 
+traditional text-heavy synoptic bulletins fail to reach rural citizens, local 
+administrators, and farmers in time. WeatherGPT bridges this gap across 22 Indian 
+languages via conversational voice/text, adhering to a "Zero-Hallucination" 
+deterministic standard, absolute cryptographic security for disaster alerts, and a 
+cost structure that reduces LLM inference expenses by over 90% compared to 
+traditional RAG chatbots.
+
+2. PROBLEM ANALYSIS & ROOT CAUSES
+--------------------------------------------------------------------------------
+- Data Fragmentation: Weather data is siloed across Mausam, Meghdoot (agro), 
+  Damini (lightning), and regional radar portals.
+- Cognitive Overload: Common users and emergency responders cannot interpret 
+  isobar maps, reflectivity charts (dBZ), or raw GRIB2/NetCDF NWP tensors.
+- Language & Accessibility Barrier: Bulletins are primarily in English/Hindi and 
+  lack real-time voice synthesis for non-literate agricultural workers.
+- The "Hallucination" Danger in Weather: Standard LLMs (e.g., vanilla GPT-4 or 
+  Llama) hallucinate numerical meteorological metrics (e.g., inventing rain 
+  quantities or cyclone trajectories), posing catastrophic life-safety risks.
+- Cost Prohibitions: Naive LLM wrapper implementations cost upwards of $0.005 
+  per query, making national-scale public dissemination economically infeasible.
+
+3. TARGET PERSONAS & CORE USE CASES
+--------------------------------------------------------------------------------
+1. Smallholder Farmer (Kisan):
+   - Needs: Hyper-local rain outlooks, humidity, and agro-advisories for spraying, 
+     irrigation, and harvesting.
+   - Channel: Low-bandwidth voice conversation in local dialects (e.g., Marathi, 
+     Bhojpuri, Telugu).
+2. Disaster Management Officer (NDRF / SDMA / District Collector):
+   - Needs: Fast spatial queries on rainfall thresholds, population at risk, and 
+     Common Alerting Protocol (CAP v1.2) warnings.
+   - Channel: Web dashboard with natural language GIS querying and alert generation.
+3. Urban Commuter & Smart City Administrator:
+   - Needs: 0-3 hour nowcasts, localized waterlogging alerts, and heatwave warnings 
+     at ward/pincode level.
+   - Channel: WhatsApp bot, PWA mobile application, voice assistant.
+4. Coastal Fisherfolk & Marine Operators:
+   - Needs: High-seas wind speeds, wave heights (INCOIS feeds), port danger signals.
+   - Channel: Voice alerts, compressed offline SMS fallback.
+5. Climate Researcher & Analyst:
+   - Needs: Historical trend synthesis and anomaly detection across 30+ years of 
+     gridded IMD data.
+   - Channel: Conversational data exploration with natural language-to-SQL/Python.
+
+4. SCOPE OF REQUIREMENTS (P0 - P2)
+--------------------------------------------------------------------------------
+[P0] MANDATORY FOR HACKATHON PROTOTYPE (Winning Baseline)
+- Deterministic Tool-Calling Engine: LLMs NEVER generate numbers; they only 
+  translate verified JSON from IMD/Open-Meteo/PostGIS into natural language.
+- Real-Time Weather Retrieval: Lat/Lon and ward-level resolution for temperature, 
+  precipitation probability, wind, humidity, and Air Quality Index (AQI).
+- Multilingual Voice-to-Voice: Speech input and output in at least 3 languages 
+  (English, Hindi, and 1 regional language e.g., Tamil/Bengali) using free-tier 
+  Bhashini or open-source Whisper/Indic-TTS.
+- CAP v1.2 Early Warning Engine: Push alerts for severe weather (Red/Orange/Yellow 
+  alerts) with cryptographic origin tags.
+- Free-Tier Cloud Deployment: Fully reproducible using open-source, free-tier 
+  infrastructure (Supabase, Groq/Ollama, FastHTML/React, Leaflet).
+
+[P1] HIGH PRIORITY (Competitive Differentiators)
+- Agro-Met Advisory Integration: Automated parsing and injection of ICAR/IMD 
+  Meghdoot crop advisories based on the user's localized forecast.
+- Lightning Strike Warnings: Integration with Damini lightning sensors providing 
+  proximity-based safety alerts within a $15\text{ km}$ radius.
+- Dual-Tier Caching Architecture: In-memory tile cache to serve 70%+ of queries 
+  with 0 LLM token cost and sub-100ms latency.
+- Map Visualization: Interactive vector map showing radar composite layers and 
+  warning polygons.
+
+[P2] SYSTEM EXTENSIONS
+- Offline/Degraded Mode: SMS/USSD text compression engine for disaster scenarios 
+  when mobile internet drops.
+- Citizen Science Verification: Crowdsourced user reports (e.g., local hail) 
+  validated automatically against radar reflectivity matrices.
+
+5. KEY ADD-ON PRIORITIES & SPECIFICATIONS
+--------------------------------------------------------------------------------
+PRIORITY 1: SECURITY (Zero-Trust & Disaster Integrity)
+- Anti-Tamper Alert Signing: Emergency warnings must carry an ECDSA (SHA-256) 
+  cryptographic signature to prevent malicious panic creation or alert spoofing.
+- Prompt-Injection Firewall: Strict input guardrails to reject prompt injections, 
+  jailbreaks, or attempts to make the system declare fake emergencies.
+- Data Sovereignty & DPDP Compliance: Zero persistence of personally identifiable 
+  information (PII) or exact GPS tracks; coordinates are snapped to a coarse 
+  H3 spatial hexagon (Resolution 7, $\sim 5\text{ km}$).
+
+PRIORITY 2: RELIABILITY & ACCURACY (Zero-Hallucination)
+- Ground-Truth Anchoring: Numerical forecast values are fetched directly from 
+  verified observation stations (AWS) or NWP grid cells.
+- Source Transparency: Every response explicitly cites the data origin and update 
+  timestamp (e.g., "Source: IMD AWS Safdarjung at 14:00 IST").
+- Strict Regex Post-Validation: Model output is parsed against the ground-truth 
+  JSON; if any numerical value deviates, the raw structured data is output directly 
+  with a deterministic template fallback.
+
+PRIORITY 3: SCALABILITY & COST-EFFECTIVENESS
+- Free-Tier Feasibility: The entire prototype is buildable at ₹0 cost using:
+  * Database: Supabase Free Tier (PostgreSQL + PostGIS)
+  * LLM Inference: Groq Free Tier (Llama-3.3-70B / Llama-3.1-8B)
+  * Voice Engine: Digital India Bhashini APIs (Free for Indian developers)
+  * Weather Data: IMD Open Portals + Open-Meteo Open Data / ECMWF Open Data
+- Production Scaling Economics: Implementation of a Spatiotemporal Redis Cache 
+  and a Local Quantized Small Language Model (SLM, 3B params) yielding a 96% 
+  reduction in operational inference cost ($< \$0.0002$ per query).
+
+6. SUCCESS METRICS & EVALUATION BENCHMARKS
+--------------------------------------------------------------------------------
+| Evaluation Metric          | Target Benchmark           | SIH Criterion Addressed        |
+|:---------------------------|:---------------------------|:-------------------------------|
+| Hallucination Frequency    | Exactly 0.0%               | Accuracy and Relevance         |
+| Text Query Latency (p95)   | $\le 800\text{ ms}$        | Response Latency               |
+| Voice-to-Voice Latency     | $\le 1.8\text{ s}$         | Rural Accessibility            |
+| Multilingual Fidelity      | $\ge 90\%$ BLEU / Human    | Multilingual Capability        |
+| Inference Cost per Query   | $\le \$0.0002$ (₹0.016)    | Scalability and Innovation     |
+| Peak Concurrent Users      | $100,000+$ (via Caching)   | Scalability                    |
+| Ground-Truth Precision     | 100% Match with IMD AWS    | Real-Time System Integration   |
+================================================================================
