@@ -1,0 +1,549 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI,sans-serif;
+}
+
+body{
+background:#eef5fb;
+transition:.3s;
+}
+
+.container{
+display:flex;
+min-height:100vh;
+}
+
+/* Sidebar */
+
+.sidebar{
+width:240px;
+background:linear-gradient(180deg,#0a2a66,#031738);
+padding:25px;
+color:white;
+display:flex;
+flex-direction:column;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+margin-bottom:30px;
+}
+
+.logo img{
+width:42px;
+height:42px;
+object-fit:contain;
+border-radius:8px;
+}
+
+.sidebar nav{
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+
+.sidebar nav a{
+color:white;
+text-decoration:none;
+padding:14px;
+border-radius:12px;
+display:flex;
+align-items:center;
+gap:12px;
+transition:.3s;
+}
+
+.sidebar nav a.active,
+.sidebar nav a:hover{
+background:#2563eb;
+}
+
+/* Main */
+
+.main-content{
+    flex:1;
+    padding:30px;
+    background:#dbe3ea;
+    overflow-y:auto;
+}
+
+/* =========================
+   TOPBAR
+========================= */
+
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+.topbar h2{
+    font-size:38px;
+    color:#17305d;
+    margin-bottom:5px;
+}
+
+.topbar p{
+    color:#475569;
+}
+
+.profile-card{
+background:white;
+padding:22px;
+border-radius:18px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+margin-bottom:25px;
+}
+
+.profile-left{
+display:flex;
+align-items:center;
+gap:18px;
+}
+
+.profile-left img{
+width:70px;
+height:70px;
+border-radius:50%;
+object-fit:cover;
+}
+
+.profile-card button{
+background:#2563eb;
+color:white;
+border:none;
+padding:12px 20px;
+border-radius:12px;
+cursor:pointer;
+}
+/* =========================
+   TOP RIGHT PROFILE DROPDOWN
+========================= */
+
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+.profile-container{
+    position:relative;
+}
+
+.top-profile{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:white;
+    border:none;
+    padding:8px 12px;
+    border-radius:40px;
+    cursor:pointer;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.top-profile:hover{
+    transform:translateY(-2px);
+}
+
+.top-profile img{
+    width:44px;
+    height:44px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.top-profile i{
+    color:#17305d;
+    font-size:14px;
+}
+
+/* Dropdown */
+
+.profile-dropdown{
+    position:absolute;
+    top:65px;
+    right:0;
+    width:220px;
+    background:white;
+    border-radius:18px;
+    box-shadow:0 15px 35px rgba(0,0,0,.18);
+    padding:14px;
+    display:none;
+    z-index:999;
+}
+
+.profile-dropdown.active{
+    display:block;
+}
+
+.dropdown-user{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:10px;
+}
+
+.dropdown-user img{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.profile-dropdown hr{
+    border:none;
+    border-top:1px solid #e2e8f0;
+    margin:10px 0;
+}
+
+.profile-dropdown a{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:12px;
+    text-decoration:none;
+    color:#17305d;
+    border-radius:10px;
+    font-weight:500;
+}
+
+.profile-dropdown a:hover{
+    background:#eef5ff;
+    color:#2563eb;
+}
+
+.settings-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:20px;
+}
+
+.setting-card{
+background:white;
+padding:20px;
+border-radius:18px;
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.setting-head{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.setting-head i{
+font-size:24px;
+color:#2563eb;
+}
+
+.setting-card select,
+.setting-card input[type=text]{
+padding:10px;
+border:1px solid #dbeafe;
+border-radius:10px;
+outline:none;
+}
+
+/* Save Button */
+
+.save-area{
+    display:flex;
+    justify-content:flex-end;
+    margin-top:35px;
+    margin-bottom:20px;
+}
+
+.save-area button{
+    background:#2563eb;
+    color:white;
+    border:none;
+    border-radius:18px;
+    padding:16px 30px;
+    font-size:18px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.save-area button:hover{
+    background:#1d4ed8;
+    transform:translateY(-2px);
+}
+
+/* Toggle */
+
+.switch{
+position:relative;
+display:inline-block;
+width:52px;
+height:28px;
+}
+
+.switch input{
+display:none;
+}
+
+.slider{
+position:absolute;
+cursor:pointer;
+top:0;
+left:0;
+right:0;
+bottom:0;
+background:#cbd5e1;
+border-radius:30px;
+transition:.3s;
+}
+
+.slider:before{
+content:"";
+position:absolute;
+width:22px;
+height:22px;
+left:3px;
+top:3px;
+background:white;
+border-radius:50%;
+transition:.3s;
+}
+
+input:checked + .slider{
+background:#2563eb;
+}
+
+input:checked + .slider:before{
+transform:translateX(24px);
+}
+
+/* Dark Mode */
+
+.dark{
+background:#0f172a;
+color:white;
+}
+
+.dark .main{
+background:#0f172a;
+}
+
+.dark .setting-card,
+.dark .profile-card{
+background:#1e293b;
+color:white;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.container{
+    display:flex;
+    min-height:100vh;
+}
+
+.sidebar{
+width:100%;
+}
+
+.settings-grid{
+grid-template-columns:1fr;
+}
+
+.profile-card{
+flex-direction:column;
+gap:20px;
+}
+
+}
+/* =========================
+   DROPDOWN
+========================= */
+
+.profile-dropdown{
+position:absolute;
+top:65px;
+right:0;
+width:240px;
+background:white;
+border-radius:18px;
+box-shadow:0 15px 35px rgba(0,0,0,.18);
+padding:14px;
+display:none;
+z-index:999;
+}
+
+.profile-dropdown.active{
+display:block;
+}
+
+.dropdown-user{
+display:flex;
+align-items:center;
+gap:12px;
+margin-bottom:10px;
+}
+
+.dropdown-user img{
+width:48px;
+height:48px;
+border-radius:50%;
+object-fit:cover;
+}
+
+.dropdown-user strong{
+display:block;
+font-size:16px;
+color:#17305d;
+}
+
+.dropdown-user p{
+font-size:13px;
+color:#64748b;
+}
+
+.profile-dropdown hr{
+border:none;
+border-top:1px solid #e2e8f0;
+margin:10px 0;
+}
+
+.profile-dropdown a{
+display:flex;
+align-items:center;
+gap:12px;
+padding:12px;
+text-decoration:none;
+color:#17305d;
+border-radius:10px;
+font-weight:500;
+transition:.25s;
+}
+
+.profile-dropdown a:hover{
+background:#eef5ff;
+color:#2563eb;
+}
+/* =========================
+   EDIT PROFILE MODAL
+========================= */
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(15,23,42,.55);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+    backdrop-filter:blur(6px);
+}
+
+.modal.active{
+    display:flex;
+}
+
+.modal-box{
+    width:420px;
+    max-width:90%;
+    background:#ffffff;
+    border-radius:22px;
+    padding:24px;
+    box-shadow:0 25px 60px rgba(0,0,0,.25);
+    animation:popup .25s ease;
+}
+
+@keyframes popup{
+    from{
+        transform:scale(.9);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+.modal-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.modal-header h3{
+    font-size:24px;
+    color:#17305d;
+}
+
+.close-btn{
+    width:36px;
+    height:36px;
+    border:none;
+    border-radius:50%;
+    background:#eef5ff;
+    cursor:pointer;
+    font-size:18px;
+}
+
+.modal-body{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.modal-body label{
+    font-weight:600;
+    color:#334155;
+}
+
+.modal-body input{
+    width:100%;
+    padding:12px 14px;
+    border:1px solid #dbeafe;
+    border-radius:12px;
+    outline:none;
+    font-size:15px;
+}
+
+.modal-body input:focus{
+    border-color:#2563eb;
+    box-shadow:0 0 0 3px rgba(37,99,235,.15);
+}
+
+.modal-footer{
+    margin-top:22px;
+    display:flex;
+    justify-content:flex-end;
+}
+
+.save-profile-btn{
+    background:#2563eb;
+    color:white;
+    border:none;
+    padding:12px 22px;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:15px;
+    font-weight:600;
+}
+
+.save-profile-btn:hover{
+    background:#1d4ed8;
+}

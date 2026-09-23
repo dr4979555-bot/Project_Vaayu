@@ -1,0 +1,201 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI,sans-serif;
+}
+
+body{
+background:#eef5fb;
+}
+
+.container{
+display:flex;
+min-height:100vh;
+}
+
+/* Sidebar */
+
+.sidebar{
+width:230px;
+background:linear-gradient(180deg,#0a2a66,#031738);
+padding:25px;
+color:white;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+margin-bottom:35px;
+}
+
+.logo img{
+width:50px;
+height:50px;
+border-radius:50%;
+object-fit:cover;
+}
+
+.sidebar nav{
+display:flex;
+flex-direction:column;
+gap:12px;
+}
+
+.sidebar nav a{
+text-decoration:none;
+color:white;
+padding:14px;
+border-radius:12px;
+display:flex;
+gap:12px;
+align-items:center;
+}
+
+.sidebar nav a.active,
+.sidebar nav a:hover{
+background:#2563eb;
+}
+
+/* Main */
+
+.main{
+flex:1;
+padding:30px;
+}
+
+.topbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:25px;
+}
+
+/* Hero */
+
+.hero-card{
+background:linear-gradient(135deg,#1565ff,#38bdf8);
+color:white;
+padding:30px;
+border-radius:22px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:25px;
+}
+
+.hero-card h1{
+font-size:70px;
+}
+
+.rain-icon i{
+font-size:90px;
+color:#fff;
+}
+
+/* Hourly */
+
+.hourly-card{
+background:white;
+padding:25px;
+border-radius:20px;
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+margin-bottom:25px;
+}
+
+.hour-grid{
+display:grid;
+grid-template-columns:repeat(6,1fr);
+gap:12px;
+margin-top:18px;
+}
+
+.hour-box{
+background:#f8fbff;
+padding:18px;
+border-radius:14px;
+text-align:center;
+}
+
+.hour-box.active{
+background:#2563eb;
+color:white;
+}
+
+/* Bottom */
+
+.bottom-grid{
+display:grid;
+grid-template-columns:1.2fr .8fr;
+gap:20px;
+}
+
+.map-card,
+.insight-card{
+background:white;
+padding:22px;
+border-radius:20px;
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+.map-card img{
+width:100%;
+border-radius:15px;
+margin-top:15px;
+}
+
+.info{
+display:flex;
+flex-direction:column;
+gap:18px;
+margin-top:20px;
+}
+
+.info div{
+background:#f8fbff;
+padding:16px;
+border-radius:14px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.info i{
+color:#2563eb;
+font-size:22px;
+}
+
+@media(max-width:1000px){
+
+.hour-grid{
+grid-template-columns:repeat(3,1fr);
+}
+
+.bottom-grid{
+grid-template-columns:1fr;
+}
+
+}
+
+@media(max-width:700px){
+
+.container{
+flex-direction:column;
+}
+
+.sidebar{
+width:100%;
+}
+
+.hour-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.hero-card{
+flex-direction:column;
+text-align:center;
+gap:20px;
+}
+
+}

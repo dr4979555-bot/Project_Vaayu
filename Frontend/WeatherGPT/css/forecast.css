@@ -1,0 +1,186 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI,sans-serif;
+}
+
+body{
+background:#eef5fb;
+}
+
+.container{
+display:flex;
+min-height:100vh;
+}
+
+/* Sidebar */
+
+.sidebar{
+width:230px;
+background:linear-gradient(180deg,#0a2a66,#031738);
+padding:25px;
+color:white;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+margin-bottom:35px;
+}
+
+.logo img{
+width:50px;
+height:50px;
+border-radius:50%;
+object-fit:cover;
+}
+
+.sidebar nav{
+display:flex;
+flex-direction:column;
+gap:12px;
+}
+
+.sidebar nav a{
+text-decoration:none;
+color:white;
+padding:14px;
+border-radius:12px;
+display:flex;
+gap:12px;
+align-items:center;
+}
+
+.sidebar nav a.active,
+.sidebar nav a:hover{
+background:#2563eb;
+}
+
+/* Main */
+
+.main{
+flex:1;
+padding:30px;
+}
+
+.topbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:25px;
+}
+
+/* Forecast Cards */
+
+.forecast-grid{
+display:grid;
+grid-template-columns:repeat(7,1fr);
+gap:12px;
+margin-bottom:30px;
+}
+
+.day-card{
+background:white;
+padding:18px;
+border-radius:18px;
+text-align:center;
+box-shadow:0 8px 18px rgba(0,0,0,.08);
+}
+
+.day-card.active{
+background:#2563eb;
+color:white;
+}
+
+.day-card i{
+font-size:32px;
+margin:12px 0;
+color:#fbbf24;
+}
+
+.day-card.active i{
+color:white;
+}
+
+/* Chart */
+
+.chart-card{
+background:white;
+padding:25px;
+border-radius:20px;
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+margin-bottom:30px;
+}
+
+/* Bottom */
+
+.bottom-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:20px;
+}
+
+.info-card{
+background:white;
+padding:22px;
+border-radius:18px;
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+.progress{
+height:12px;
+background:#dbeafe;
+border-radius:20px;
+margin:20px 0;
+}
+
+.fill{
+height:100%;
+background:#2563eb;
+border-radius:20px;
+}
+
+.sun-time{
+display:flex;
+justify-content:space-around;
+margin-top:20px;
+text-align:center;
+}
+
+.sun-time i{
+font-size:34px;
+color:#2563eb;
+margin-bottom:10px;
+}
+
+/* Responsive */
+
+@media(max-width:1200px){
+
+.forecast-grid{
+grid-template-columns:repeat(4,1fr);
+}
+
+}
+
+@media(max-width:768px){
+
+.container{
+flex-direction:column;
+}
+
+.sidebar{
+width:100%;
+}
+
+.forecast-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.bottom-grid{
+grid-template-columns:1fr;
+}
+
+}
