@@ -1,10 +1,7 @@
 import base64
 import logging
 import re
-from app.services.multi_city_temperature_predictor import (
-    TRAINED_LOCATIONS,
-    predict_multi_city_next_hour_temperature,
-)
+from app.services.location_constants import TRAINED_LOCATIONS
 from fastapi import APIRouter, Depends, HTTPException, Query, Request
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -304,6 +301,10 @@ async def chat_message(
         if prediction_location:
 
             try:
+                from app.services.multi_city_temperature_predictor import (
+                    predict_multi_city_next_hour_temperature
+                )
+
                 prediction = (
                     await predict_multi_city_next_hour_temperature(
                         prediction_location
@@ -545,3 +546,6 @@ def analytics(
             status_code=500,
             detail=f"Analytics generation failed: {exc}",
         )
+
+
+

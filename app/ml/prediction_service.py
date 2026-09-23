@@ -7,7 +7,11 @@ import pandas as pd
 # Backend project root
 BASE_DIR = Path(__file__).resolve().parents[2]
 
-MODEL_PATH = BASE_DIR / "models" / "random_forest_temperature_model.joblib"
+MODEL_PATH = (
+    BASE_DIR
+    / "models"
+    / "random_forest_temperature_model.joblib"
+)
 
 
 FEATURES = [
@@ -36,13 +40,39 @@ FEATURES = [
 
 
 class TemperaturePredictionService:
+    """
+    Low-level temperature prediction service.
+
+    The model is loaded lazily on first prediction instead of
+    during FastAPI startup.
+    """
+
     def __init__(self):
+        self.model = None
+
+    def _load_model(self):
+        """
+        Load the Random Forest model only when it is actually needed.
+        """
+        if self.model is not None:
+            return self.model
+
         if not MODEL_PATH.exists():
             raise FileNotFoundError(
                 f"ML model not found: {MODEL_PATH}"
             )
 
-        self.model = joblib.load(MODEL_PATH)
+        try:
+            self.model = joblib.load(MODEL_PATH)
+        except Exception as exc:
+            raise RuntimeError(
+                "Could not load the temperature ML model. "
+                "The saved model may be incompatible with the "
+                "current Python/scikit-learn/joblib environment "
+                "or the model file may be corrupted."
+            ) from exc
+
+        return self.model
 
     def predict(self, weather_data: dict) -> float:
         """
@@ -61,14 +91,21 @@ class TemperaturePredictionService:
             )
 
         input_data = pd.DataFrame(
-            [[weather_data[feature] for feature in FEATURES]],
+            [
+                [
+                    weather_data[feature]
+                    for feature in FEATURES
+                ]
+            ],
             columns=FEATURES,
         )
 
-        prediction = self.model.predict(input_data)[0]
+        model = self._load_model()
+
+        prediction = model.predict(input_data)[0]
 
         return round(float(prediction), 2)
 
 
-# Load model once when service starts.
+# Create the service object without loading the model.
 prediction_service = TemperaturePredictionService()

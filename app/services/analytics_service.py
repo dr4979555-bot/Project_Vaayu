@@ -1,8 +1,6 @@
 from functools import lru_cache
 from pathlib import Path
 
-import pandas as pd
-
 
 BASE_DIR = Path(__file__).resolve().parents[2]
 DATA_FILE = BASE_DIR / "data" / "multi_city_weather_2021_2025.csv"
@@ -36,7 +34,9 @@ def canonicalize_location(location: str) -> str:
 
 
 @lru_cache(maxsize=1)
-def load_weather_data() -> pd.DataFrame:
+def load_weather_data():
+    import pandas as pd
+
     if not DATA_FILE.exists():
         raise FileNotFoundError(
             f"Weather dataset not found: {DATA_FILE}"
@@ -94,6 +94,8 @@ def get_monthly_analytics(
     year: int | None = None,
     month: int | None = None,
 ) -> dict:
+    import pandas as pd
+
     location = canonicalize_location(city)
 
     df = load_weather_data()

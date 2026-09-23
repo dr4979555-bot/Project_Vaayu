@@ -1,10 +1,6 @@
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 
-from app.ml.prediction_service import prediction_service
-from app.services.multi_city_temperature_predictor import (
-    predict_multi_city_next_hour_temperature,
-)
 
 router = APIRouter()
 
@@ -56,6 +52,8 @@ async def predict_temperature(
     request: TemperaturePredictionRequest,
 ):
     try:
+        from app.ml.prediction_service import prediction_service
+
         weather_data = request.model_dump()
 
         prediction = prediction_service.predict(weather_data)
@@ -105,6 +103,10 @@ async def predict_location_temperature(
     request: LocationTemperaturePredictionRequest,
 ):
     try:
+        from app.services.multi_city_temperature_predictor import (
+            predict_multi_city_next_hour_temperature
+        )
+
         location = request.location.strip()
 
         if not location:
@@ -135,7 +137,12 @@ async def predict_location_temperature(
         )
 
     except Exception as e:
+        import traceback
+        traceback.print_exc()
         raise HTTPException(
             status_code=500,
-            detail=f"Location-based ML prediction failed: {str(e)}",
+            detail=f"Location-based ML prediction failed: {repr(e)}",
         )
+
+
+
