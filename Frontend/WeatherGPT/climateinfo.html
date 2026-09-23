@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Climate Information | Vaayu</title>
+
+<link rel="stylesheet" href="../css/climate.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- Sidebar -->
+
+<aside class="sidebar">
+
+<div class="logo">
+<img src="../assets/mylogo.jpeg" alt="myLogo">
+<h2>Vaayu</h2>
+</div>
+
+<nav>
+
+<a href="index.html">
+<i class="fa-solid fa-house"></i>
+Home
+</a>
+
+<a href="liveweather.html">
+<i class="fa-solid fa-cloud"></i>
+Live Weather
+</a>
+
+<a href="forecast.html">
+<i class="fa-solid fa-calendar-days"></i>
+Forecast
+</a>
+
+<a href="rainprediction.html">
+<i class="fa-solid fa-droplet"></i>
+Rain Prediction
+</a>
+
+<a href="weatheralert.html">
+<i class="fa-solid fa-triangle-exclamation"></i>
+Weather Alerts
+</a>
+
+<a href="climateinfo.html" class="active">
+<i class="fa-solid fa-leaf"></i>
+Climate Information
+</a>
+
+</nav>
+
+</aside>
+
+<!-- Main -->
+
+<main class="main">
+
+<header class="topbar">
+
+<h2>Climate Information</h2>
+
+<div class="city" id="climateLocation">
+<i class="fa-solid fa-location-dot"></i>
+Patna, Bihar
+</div>
+
+</header>
+
+<!-- Hero -->
+
+<section class="hero-card">
+
+<div>
+
+<h1>Climate Trends</h1>
+
+<p>
+Historical weather insights and environmental data
+</p>
+
+</div>
+
+<div class="hero-icon">
+
+<i class="fa-solid fa-earth-asia"></i>
+
+</div>
+
+</section>
+
+<!-- Statistics -->
+
+<section class="stats-grid">
+
+<div class="stat-card">
+
+<i class="fa-solid fa-temperature-high"></i>
+
+<h3 id="avgSummerHigh">
+--°C
+</h3>
+
+<p>Avg Summer High</p>
+
+</div>
+
+
+<div class="stat-card">
+
+<i class="fa-solid fa-cloud-rain"></i>
+
+<h3 id="annualRainfall">
+-- mm
+</h3>
+
+<p>Avg Annual Rainfall</p>
+
+</div>
+
+
+<div class="stat-card">
+
+<i class="fa-solid fa-temperature-arrow-up"></i>
+
+<h3 id="hottestDay">
+--°C
+</h3>
+
+<p>Hottest Recorded Day</p>
+
+</div>
+
+
+<div class="stat-card">
+
+<i class="fa-solid fa-temperature-full"></i>
+
+<h3 id="daysAbove40">
+--
+</h3>
+
+<p>Days ≥ 40°C</p>
+
+</div>
+
+</section>
+
+<!-- Chart -->
+
+<section class="chart-card">
+
+<h3>Average Temperature Trend</h3>
+
+<svg
+id="climateChart"
+viewBox="0 0 700 250"
+width="100%"
+height="250">
+
+</svg>
+
+</section>
+
+<!-- Bottom -->
+
+<section class="bottom-grid">
+
+<div class="map-card">
+
+<h3>Climate Data Coverage</h3>
+
+<div class="coverage">
+
+<i class="fa-solid fa-database"></i>
+
+<p>
+Historical weather dataset used for this analysis.
+</p>
+
+<strong id="dataCoverage">
+2021–2025
+</strong>
+
+</div>
+
+</div>
+
+
+<div class="insight-card">
+
+<h3>Climate Insights</h3>
+
+<div class="insight">
+
+<div>
+
+<i class="fa-solid fa-temperature-high"></i>
+
+<span>Hottest Day</span>
+
+<strong id="hottestDate">
+--
+</strong>
+
+</div>
+
+
+<div>
+
+<i class="fa-solid fa-cloud-showers-heavy"></i>
+
+<span>Annual Rainfall</span>
+
+<strong id="rainfallInsight">
+-- mm
+</strong>
+
+</div>
+
+
+<div>
+
+<i class="fa-solid fa-temperature-half"></i>
+
+<span>Summer Average</span>
+
+<strong id="summerInsight">
+--°C
+</strong>
+
+</div>
+
+
+<div>
+
+<i class="fa-solid fa-calendar-days"></i>
+
+<span>Data Period</span>
+
+<strong id="periodInsight">
+--
+</strong>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+</div>
+
+<script src="../js/climate.js"></script>
+
+</body>
+
+</html>

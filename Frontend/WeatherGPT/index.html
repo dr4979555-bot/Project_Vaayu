@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width,initial-scale=1.0"
+>
+
+<title>Vaayu</title>
+
+<link
+    rel="stylesheet"
+    href="../css/dashboard.css"
+>
+
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+>
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+
+<!-- Sidebar -->
+
+<aside class="sidebar">
+
+    <div class="logo">
+
+        <img
+            src="../assets/mylogo.jpeg"
+            alt="Vaayu Logo"
+        >
+
+        <h2>Vaayu</h2>
+
+    </div>
+
+
+    <nav>
+
+        <a href="index.html" class="active">
+            <i class="fa-solid fa-house"></i>
+            Home
+        </a>
+
+
+        <a href="liveweather.html">
+            <i class="fa-solid fa-cloud"></i>
+            Live Weather
+        </a>
+
+
+        <a href="forecast.html">
+            <i class="fa-solid fa-calendar-days"></i>
+            Forecast
+        </a>
+
+
+        <a href="rainprediction.html">
+            <i class="fa-solid fa-droplet"></i>
+            Rain Prediction
+        </a>
+
+
+        <a href="weatheralert.html">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            Weather Alert
+        </a>
+
+
+        <a href="climateinfo.html">
+            <i class="fa-solid fa-leaf"></i>
+            Climate Information
+        </a>
+
+
+        <a href="chatbot.html">
+            <i class="fa-solid fa-comments"></i>
+            Chatbot
+        </a>
+
+
+        <a href="analytics.html">
+            <i class="fa-solid fa-chart-column"></i>
+            Analytics
+        </a>
+
+
+        <a href="settings.html">
+            <i class="fa-solid fa-gear"></i>
+            Settings
+        </a>
+
+    </nav>
+
+
+    <div class="bottom-text">
+        Smarter Weather<br>
+        for a Safer Tomorrow
+    </div>
+
+</aside>
+
+
+<!-- Main -->
+
+<main class="main">
+
+
+<header class="topbar">
+
+    <div class="location">
+
+        <i class="fa-solid fa-location-dot"></i>
+
+        <span>Current Location</span>
+
+        <b>Patna</b>
+
+        <small
+            id="dashboardStatus"
+            style="margin-left:10px;"
+        >
+            Loading live weather...
+        </small>
+
+    </div>
+
+
+    <!-- Profile -->
+
+    <div class="profile-container">
+
+        <div
+            class="profile"
+            id="profileBtn"
+        >
+
+            <i class="fa-solid fa-user"></i>
+
+        </div>
+
+
+        <div
+            class="profile-dropdown"
+            id="profileMenu"
+        >
+
+            <a href="#">
+
+                <i class="fa-solid fa-user"></i>
+
+                My Profile
+
+            </a>
+
+
+            <a href="settings.html">
+
+                <i class="fa-solid fa-gear"></i>
+
+                Settings
+
+            </a>
+
+
+            <a href="#">
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+
+                Logout
+
+            </a>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- Hero -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1>
+            Hello, Welcome to Vaayu
+        </h1>
+
+
+        <p>
+            Your AI-powered assistant for weather forecasting,
+            alerts and climate information.
+        </p>
+
+    </div>
+
+
+    <div class="search-wrapper">
+
+        <button
+            id="locationBtn"
+            class="location-btn"
+        >
+
+            <i class="fa-solid fa-location-crosshairs"></i>
+
+            Use Current Location
+
+        </button>
+
+
+        <div class="or-text">
+            OR
+        </div>
+
+
+        <div class="search-box">
+
+            <i class="fa-solid fa-location-dot"></i>
+
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Enter city name (Delhi, Mumbai...)"
+            >
+
+
+            <button id="searchBtn">
+
+                <i
+                    class="fa-solid fa-magnifying-glass"
+                ></i>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Current Weather -->
+
+<div class="current-weather card">
+
+    <div class="card-top">
+
+        <h3>
+            Current Weather
+        </h3>
+
+        <span class="live">
+            Live
+        </span>
+
+    </div>
+
+
+    <div class="city">
+
+        <i class="fa-solid fa-location-dot"></i>
+
+        <span id="cityName">
+            Patna
+        </span>
+
+    </div>
+
+
+    <div class="weather-main">
+
+        <div class="weather-icon">
+
+            <i class="fa-solid fa-cloud-sun"></i>
+
+        </div>
+
+
+        <h1 id="temperature">
+            --°C
+        </h1>
+
+
+        <p id="condition">
+            Loading...
+        </p>
+
+
+        <small id="feelsLike">
+            Live weather data
+        </small>
+
+    </div>
+
+
+    <div class="weather-stats">
+
+
+        <div class="stat-box">
+
+            <i class="fa-solid fa-droplet"></i>
+
+            <span>
+                Humidity
+            </span>
+
+            <strong id="humidity">
+                --%
+            </strong>
+
+        </div>
+
+
+        <div class="stat-box">
+
+            <i class="fa-solid fa-wind"></i>
+
+            <span>
+                Wind
+            </span>
+
+            <strong id="wind">
+                -- km/h
+            </strong>
+
+        </div>
+
+
+        <div class="stat-box">
+
+            <i class="fa-solid fa-gauge-high"></i>
+
+            <span>
+                Pressure
+            </span>
+
+            <strong id="pressure">
+                -- hPa
+            </strong>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- 7-Day Forecast -->
+
+<div class="forecast card">
+
+    <div class="forecast-header">
+
+        <h3>
+
+            <i class="fa-solid fa-calendar-days"></i>
+
+            7-Day Forecast
+
+        </h3>
+
+
+        <a href="forecast.html">
+            View Details →
+        </a>
+
+    </div>
+
+
+    <div class="forecast-container">
+
+        <div class="forecast-card active">
+
+            <h3>Today</h3>
+
+            <p>--</p>
+
+            <i class="fa-solid fa-cloud-sun weather-icon"></i>
+
+            <h2>--°</h2>
+
+            <span>--°</span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- Weather Alerts -->
+
+<div class="alert card">
+
+    <div class="alert-header">
+
+        <div class="alert-title">
+
+            <i
+                class="fa-solid fa-triangle-exclamation"
+            ></i>
+
+            <h3>
+                Weather Alerts
+            </h3>
+
+        </div>
+
+
+        <span class="alert-badge">
+            Checking...
+        </span>
+
+    </div>
+
+
+    <div class="alert-body">
+
+        <h4>
+            Loading weather alerts...
+        </h4>
+
+
+        <p class="alert-location">
+
+            <i class="fa-solid fa-location-dot"></i>
+
+            Checking location...
+
+        </p>
+
+
+        <small>
+
+            <i class="fa-regular fa-clock"></i>
+
+            Checking official alerts...
+
+        </small>
+
+
+        <p class="alert-text">
+
+            Please wait while Vaayu checks official
+            weather alerts for this location.
+
+        </p>
+
+
+        <button class="alert-btn">
+
+            View Advisory
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- Highlights -->
+
+<section class="highlights">
+
+    <div class="section-title">
+
+        <h2>
+            Today's Highlights
+        </h2>
+
+        <p>
+            Key weather insights for today
+        </p>
+
+    </div>
+
+
+    <div class="highlight-grid">
+
+
+        <div class="highlight-card">
+
+            <i class="fa-solid fa-sun"></i>
+
+            <h4>
+                UV Index
+            </h4>
+
+            <h3 id="uvValue">
+                N/A
+            </h3>
+
+            <span id="uvStatus">
+                Data not available
+            </span>
+
+        </div>
+
+
+        <div class="highlight-card">
+
+            <i class="fa-solid fa-wind"></i>
+
+            <h4>
+                Air Quality
+            </h4>
+
+            <h3 id="aqiValue">
+                N/A
+            </h3>
+
+            <span id="aqiStatus">
+                Data not available
+            </span>
+
+        </div>
+
+
+        <div class="highlight-card">
+
+            <i class="fa-solid fa-sunrise"></i>
+
+            <h4>
+                Sunrise
+            </h4>
+
+            <h3 id="sunriseValue">
+                --:--
+            </h3>
+
+            <span>
+                Morning
+            </span>
+
+        </div>
+
+
+        <div class="highlight-card">
+
+            <i class="fa-solid fa-sunset"></i>
+
+            <h4>
+                Sunset
+            </h4>
+
+            <h3 id="sunsetValue">
+                --:--
+            </h3>
+
+            <span>
+                Evening
+            </span>
+
+        </div>
+
+
+        <div class="highlight-card">
+
+            <i class="fa-solid fa-eye"></i>
+
+            <h4>
+                Visibility
+            </h4>
+
+            <h3 id="visibilityValue">
+                N/A
+            </h3>
+
+            <span id="visibilityStatus">
+                Data not available
+            </span>
+
+        </div>
+
+
+        <div class="highlight-card">
+
+            <i class="fa-solid fa-compass"></i>
+
+            <h4>
+                Wind Direction
+            </h4>
+
+            <h3 id="windDirection">
+                N/A
+            </h3>
+
+            <span>
+                Live
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+</div>
+
+
+<script src="../js/dashboard.js?v=3"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Settings | Vaayu</title>
+
+<link rel="stylesheet" href="../css/settings.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- Sidebar -->
+
+<aside class="sidebar">
+
+<div class="logo">
+<img src="../assets/mylogo.jpeg" alt="myLogo">
+<h2>Vaayu</h2>
+</div>
+
+<nav>
+
+<a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+
+<a href="liveweather.html"><i class="fa-solid fa-cloud"></i> Live Weather</a>
+
+<a href="forecast.html"><i class="fa-solid fa-calendar-days"></i> Forecast</a>
+
+<a href="rainprediction.html"><i class="fa-solid fa-droplet"></i> Rain Prediction</a>
+
+<a href="weatheralert.html"><i class="fa-solid fa-triangle-exclamation"></i> Weather Alerts</a>
+
+<a href="climateinfo.html"><i class="fa-solid fa-leaf"></i> Climate Info</a>
+
+<a href="chatbot.html"><i class="fa-solid fa-comments"></i> Chatbot</a>
+
+<a href="analytics.html"><i class="fa-solid fa-chart-line"></i> Analytics</a>
+
+<a href="settings.html" class="active"><i class="fa-solid fa-gear"></i> Settings</a>
+
+</nav>
+
+</aside>
+<!-- Save Button -->
+<div class="save-area">
+    <button id="saveBtn">
+        <i class="fa-solid fa-floppy-disk"></i>
+        Save Changes
+    </button>
+</div>
+
+<!-- Edit Profile Modal -->
+<div class="modal" id="profileModal">
+
+    <div class="modal-box">
+
+        <div class="modal-header">
+            <h3>Edit Profile</h3>
+
+            <button class="close-btn" id="closeModal">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <div class="modal-body">
+
+            <label>Name</label>
+            <input type="text" id="nameInput" value="User">
+
+            <label>City</label>
+            <input type="text" id="cityInput" value="Patna, Bihar">
+
+            <label>Email</label>
+            <input type="email" id="emailInput" value="user@example.com">
+
+        </div>
+
+        <div class="modal-footer">
+            <button id="saveProfile" class="save-profile-btn">
+                Save Profile
+            </button>
+        </div>
+
+    </div>
+
+</div>
+
+</main>
+</div>
+
+<!-- Main -->
+
+<main class="main">
+
+<class="topbar">
+
+    <div>
+        <h2>Settings</h2>
+        <p>Customize your Vaayu experience</p>
+    </div>
+
+    <!-- Top Right Profile -->
+    <div class="profile-container">
+
+        <button class="top-profile" id="profileBtn">
+
+            <img src="../assets/logo.jpg" alt="Profile">
+
+            <i class="fa-solid fa-chevron-down"></i>
+
+        </button>
+
+        <!-- Dropdown -->
+        <div class="profile-dropdown" id="profileMenu">
+
+            <div class="dropdown-user">
+
+                <img src="../assets/logo.jpg" alt="Profile">
+
+                <div>
+                    <strong>User</strong>
+                    <p>Vaayu User</p>
+                </div>
+
+            </div>
+
+            <hr>
+
+            <a href="#"><i class="fa-solid fa-user"></i> My Profile</a>
+            <a href="settings.html"><i class="fa-solid fa-gear"></i> Settings</a>
+            <a href="#"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+
+        </div>
+
+    </div>
+
+</header>
+
+<!-- Profile -->
+
+<section class="profile-card">
+
+    <div class="profile-left">
+
+        <div class="profile-image">
+
+            <img src="../assets/logo.jpg" alt="Profile">
+
+            <span class="online-dot"></span>
+
+        </div>
+
+        <div>
+
+            <h3>User <i class="fa-solid fa-circle-check verify"></i></h3>
+
+            <p>Vaayu User</p>
+
+            <small>Exploring a smarter, safer and greener tomorrow.</small>
+
+        </div>
+
+    </div>
+
+    <div class="profile-info">
+
+        <div>
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Patna, Bihar</span>
+        </div>
+
+        <div>
+            <i class="fa-solid fa-calendar-days"></i>
+            <span>Member Since Apr 2026</span>
+        </div>
+
+    </div>
+
+    <button id="editProfileBtn" class="edit-btn">
+        <i class="fa-solid fa-pen"></i>
+        Edit Profile
+    </button>
+
+</section>
+
+<!-- Settings -->
+
+<div class="settings-grid">
+
+<!-- Dark Mode -->
+
+<div class="setting-card">
+
+<div class="setting-head">
+
+<i class="fa-solid fa-moon"></i>
+
+<h3>Dark Mode</h3>
+
+</div>
+
+<label class="switch">
+
+<input type="checkbox" id="darkToggle">
+
+<span class="slider"></span>
+
+</label>
+
+</div>
+
+<!-- Language -->
+
+<div class="setting-card">
+
+<div class="setting-head">
+
+<i class="fa-solid fa-language"></i>
+
+<h3>Language</h3>
+
+</div>
+
+<select id="language">
+
+<option>English</option>
+
+<option>Hindi</option>
+
+</select>
+
+</div>
+
+<!-- Location -->
+
+<div class="setting-card">
+
+<div class="setting-head">
+
+<i class="fa-solid fa-location-dot"></i>
+
+<h3>Default Location</h3>
+
+</div>
+
+<input type="text" value="Patna, Bihar">
+
+</div>
+
+<!-- Notifications -->
+
+<div class="setting-card">
+
+<div class="setting-head">
+
+<i class="fa-solid fa-bell"></i>
+
+<h3>Weather Alerts</h3>
+
+</div>
+
+<label class="switch">
+
+<input type="checkbox" checked>
+
+<span class="slider"></span>
+
+</label>
+
+</div>
+
+<!-- Units -->
+
+<div class="setting-card">
+
+<div class="setting-head">
+
+<i class="fa-solid fa-temperature-half"></i>
+
+<h3>Temperature Unit</h3>
+
+</div>
+
+<select>
+
+<option>Celsius (°C)</option>
+
+<option>Fahrenheit (°F)</option>
+
+</select>
+
+</div>
+
+<!-- Refresh -->
+
+<div class="setting-card">
+
+<div class="setting-head">
+
+<i class="fa-solid fa-rotate"></i>
+
+<h3>Auto Refresh</h3>
+
+</div>
+
+<select>
+
+<option>Every 5 min</option>
+
+<option>Every 15 min</option>
+
+<option>Every 30 min</option>
+
+</select>
+
+</div>
+
+</div>
+
+<!-- Save -->
+
+<div class="save-area">
+
+<button id="saveBtn">
+
+<i class="fa-solid fa-floppy-disk"></i>
+
+Save Changes
+
+</button>
+
+</div>
+
+</main>
+
+</div>
+
+<script src="../js/settings.js"></script>
+
+</body>
+</html>

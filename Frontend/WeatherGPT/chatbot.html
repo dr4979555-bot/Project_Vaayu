@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>Vaayu Chatbot</title>
+
+<link
+    rel="stylesheet"
+    href="../css/chatbot.css"
+>
+
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+>
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+
+<!-- Sidebar -->
+
+<aside class="sidebar">
+
+    <div class="logo">
+
+        <img
+            src="../assets/mylogo.jpeg"
+            alt="myLogo"
+        >
+
+        <h2>Vaayu</h2>
+
+    </div>
+
+
+    <nav>
+
+        <a href="index.html">
+            <i class="fa-solid fa-house"></i>
+            Home
+        </a>
+
+
+        <a href="liveweather.html">
+            <i class="fa-solid fa-cloud"></i>
+            Live Weather
+        </a>
+
+
+        <a href="forecast.html">
+            <i class="fa-solid fa-calendar-days"></i>
+            Forecast
+        </a>
+
+
+        <a href="rainprediction.html">
+            <i class="fa-solid fa-droplet"></i>
+            Rain Prediction
+        </a>
+
+
+        <a href="weatheralert.html">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            Weather Alerts
+        </a>
+
+
+        <a href="climateinfo.html">
+            <i class="fa-solid fa-leaf"></i>
+            Climate Information
+        </a>
+
+
+        <a
+            href="chatbot.html"
+            class="active"
+        >
+            <i class="fa-solid fa-comments"></i>
+            Chatbot
+        </a>
+
+
+        <a href="analytics.html">
+            <i class="fa-solid fa-chart-line"></i>
+            Analytics
+        </a>
+
+
+        <a href="settings.html">
+            <i class="fa-solid fa-gear"></i>
+            Settings
+        </a>
+
+    </nav>
+
+</aside>
+
+
+<!-- Main -->
+
+<main class="main">
+
+
+<header class="topbar">
+
+    <div>
+
+        <h2>
+            Vaayu Assistant
+        </h2>
+
+        <p>
+            Ask anything about weather, forecasts and climate.
+        </p>
+
+    </div>
+
+
+    <div class="online">
+
+        <i class="fa-solid fa-circle"></i>
+
+        Online
+
+    </div>
+
+</header>
+
+
+<!-- Suggestions -->
+
+<div class="suggestions">
+
+    <button>
+        Will it rain today?
+    </button>
+
+    <button>
+        Tomorrow's forecast
+    </button>
+
+    <button>
+        Mumbai temperature
+    </button>
+
+    <button>
+        Best travel weather
+    </button>
+
+</div>
+
+
+<!-- Chat -->
+
+<div
+    class="chat-area"
+    id="chatArea"
+>
+
+    <div class="bot message">
+
+        <div class="avatar">
+            AI
+        </div>
+
+
+        <div class="bubble">
+
+            Hello! I'm <strong>Vaayu</strong> 🌦️.
+
+            <br><br>
+
+            Ask me about weather forecasts,
+            rainfall, alerts, climate information,
+            or use the microphone to speak.
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- Typing -->
+
+<div
+    class="typing"
+    id="typing"
+>
+
+    <span></span>
+    <span></span>
+    <span></span>
+
+</div>
+
+
+<!-- Voice Status -->
+
+<div
+    class="voice-status"
+    id="voiceStatus"
+>
+
+    <i class="fa-solid fa-microphone"></i>
+
+    Ready for voice input
+
+</div>
+
+
+<!-- Input -->
+
+<div class="chat-input">
+
+
+    <select
+        id="voiceLanguage"
+        class="voice-language"
+        title="Voice language"
+    >
+
+        <option value="en">
+            English
+        </option>
+
+        <option value="hi">
+            हिंदी
+        </option>
+
+        <option value="bn">
+            বাংলা
+        </option>
+
+        <option value="mr">
+            मराठी
+        </option>
+
+    </select>
+
+
+    <input
+        type="text"
+        id="messageInput"
+        placeholder="Ask about weather..."
+    >
+
+
+    <button
+        id="micBtn"
+        class="voice-btn"
+        title="Speak"
+        type="button"
+    >
+
+        <i class="fa-solid fa-microphone"></i>
+
+    </button>
+
+
+    <button
+        id="sendBtn"
+        title="Send"
+        type="button"
+    >
+
+        <i class="fa-solid fa-paper-plane"></i>
+
+    </button>
+
+</div>
+
+
+</main>
+
+</div>
+
+
+<script src="../js/chatbot.js?v=2"></script>
+
+</body>
+
+</html>

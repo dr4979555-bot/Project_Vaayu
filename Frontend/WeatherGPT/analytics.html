@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>Analytics | Vaayu</title>
+
+<link
+    rel="stylesheet"
+    href="../css/analytics.css"
+>
+
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+>
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+
+<!-- Sidebar -->
+
+<aside class="sidebar">
+
+    <div class="logo">
+
+        <img
+            src="../assets/mylogo.jpeg"
+            alt="myLogo"
+        >
+
+        <h2>Vaayu</h2>
+
+    </div>
+
+
+    <nav>
+
+        <a href="index.html">
+            <i class="fa-solid fa-house"></i>
+            Home
+        </a>
+
+
+        <a href="liveweather.html">
+            <i class="fa-solid fa-cloud"></i>
+            Live Weather
+        </a>
+
+
+        <a href="forecast.html">
+            <i class="fa-solid fa-calendar-days"></i>
+            Forecast
+        </a>
+
+
+        <a href="rainprediction.html">
+            <i class="fa-solid fa-droplet"></i>
+            Rain Prediction
+        </a>
+
+
+        <a href="weatheralert.html">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            Weather Alerts
+        </a>
+
+
+        <a href="climateinfo.html">
+            <i class="fa-solid fa-leaf"></i>
+            Climate Information
+        </a>
+
+
+        <a href="chatbot.html">
+            <i class="fa-solid fa-comments"></i>
+            Chatbot
+        </a>
+
+
+        <a href="analytics.html">
+
+            <i class="fa-solid fa-chart-line"></i>
+
+            Analytics
+
+        </a>
+
+    </nav>
+
+</aside>
+
+
+<!-- Main -->
+
+<main class="main">
+
+
+<header class="topbar">
+
+    <div>
+
+        <h2>
+            Weather Analytics Dashboard
+        </h2>
+
+        <p id="analyticsLocation">
+            Insights for Patna
+        </p>
+
+        <small id="analyticsStatus">
+            Loading real weather analytics...
+        </small>
+
+    </div>
+
+
+    <div class="date-box">
+
+        <i class="fa-solid fa-calendar-days"></i>
+
+        <span id="analyticsMonth">
+            September 2025
+        </span>
+
+    </div>
+
+</header>
+
+
+<!-- Statistics -->
+
+<section class="stats-grid">
+
+
+    <div class="stat-card">
+
+        <i class="fa-solid fa-temperature-high"></i>
+
+        <h3 id="highestTemp">
+            --°C
+        </h3>
+
+        <p>
+            Highest Temp
+        </p>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <i class="fa-solid fa-temperature-low"></i>
+
+        <h3 id="lowestTemp">
+            --°C
+        </h3>
+
+        <p>
+            Lowest Temp
+        </p>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <i class="fa-solid fa-cloud-rain"></i>
+
+        <h3 id="rainfallValue">
+            -- mm
+        </h3>
+
+        <p>
+            Monthly Rainfall
+        </p>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <i class="fa-solid fa-droplet"></i>
+
+        <h3 id="humidityValue">
+            --%
+        </h3>
+
+        <p>
+            Average Humidity
+        </p>
+
+    </div>
+
+
+</section>
+
+
+<!-- Temperature Chart -->
+
+<section class="chart-card">
+
+    <h3>
+        Daily Temperature Trend
+    </h3>
+
+
+    <svg
+        id="temperatureChart"
+        viewBox="0 0 700 260"
+        width="100%"
+        height="260"
+    >
+    </svg>
+
+</section>
+
+
+<!-- Bottom -->
+
+<section class="bottom-grid">
+
+
+    <div class="rain-card">
+
+        <h3>
+            Monthly Rainfall
+        </h3>
+
+
+        <div
+            class="bars"
+            id="rainfallBars"
+        >
+
+            <p>
+                Loading rainfall data...
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="insight-card">
+
+        <h3>
+            Weather Insights
+        </h3>
+
+
+        <div class="info">
+
+
+            <div>
+
+                <i class="fa-solid fa-sun"></i>
+
+                <span>
+                    Dry Days
+                </span>
+
+                <strong id="dryDays">
+                    --
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <i class="fa-solid fa-cloud-rain"></i>
+
+                <span>
+                    Rainy Days
+                </span>
+
+                <strong id="rainyDays">
+                    --
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <i class="fa-solid fa-droplet"></i>
+
+                <span>
+                    Avg Humidity
+                </span>
+
+                <strong id="humidityInsight">
+                    --%
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <i class="fa-solid fa-wind"></i>
+
+                <span>
+                    Wind Avg.
+                </span>
+
+                <strong id="windInsight">
+                    -- km/h
+                </strong>
+
+            </div>
+
+
+        </div>
+
+
+        <div style="
+            margin-top:20px;
+            font-size:13px;
+            opacity:0.75;
+        ">
+
+            <div>
+                Highest temperature:
+                <strong id="highestTime">
+                    --
+                </strong>
+            </div>
+
+            <div style="margin-top:8px;">
+                Lowest temperature:
+                <strong id="lowestTime">
+                    --
+                </strong>
+            </div>
+
+            <div style="margin-top:8px;">
+                Dataset:
+                <strong id="dataPeriod">
+                    --
+                </strong>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+</div>
+
+
+<script src="../js/analytics.js?v=2"></script>
+
+</body>
+
+</html>

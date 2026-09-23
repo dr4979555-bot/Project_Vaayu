@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>Live Weather | Vaayu</title>
+
+<link rel="stylesheet" href="../css/liveweather.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+<body>
+
+<div class="container">
+
+<!-- Sidebar -->
+
+<aside class="sidebar">
+
+<div class="logo">
+
+<img src="../assets/mylogo.jpeg" alt="myLogo">
+
+<h2>Vaayu</h2>
+
+</div>
+
+<nav>
+
+<a href="index.html">
+<i class="fa-solid fa-house"></i>
+Home
+</a>
+
+<a href="liveweather.html" class="active">
+<i class="fa-solid fa-cloud"></i>
+Live Weather
+</a>
+
+</nav>
+
+</aside>
+
+<!-- Main -->
+
+<main class="main">
+
+<header class="topbar">
+
+<h2>Live Weather</h2>
+
+<div class="status">
+
+<i class="fa-solid fa-circle"></i>
+
+Live
+
+</div>
+
+</header>
+
+<!-- Hero Card -->
+
+<section class="details">
+
+<div class="detail-card">
+
+<i class="fa-solid fa-droplet"></i>
+
+<h4>Humidity</h4>
+
+<h2 id="humidity">--%</h2>
+
+</div>
+
+<div class="detail-card">
+
+<i class="fa-solid fa-wind"></i>
+
+<h4>Wind</h4>
+
+<h2 id="wind">-- km/h</h2>
+
+</div>
+
+<div class="detail-card">
+
+<i class="fa-solid fa-gauge-high"></i>
+
+<h4>Pressure</h4>
+
+<h2 id="pressure">-- hPa</h2>
+
+</div>
+
+<div class="detail-card">
+
+<i class="fa-solid fa-eye"></i>
+
+<h4>Visibility</h4>
+
+<h2 id="visibility">--</h2>
+
+</div>
+
+</section>
+
+<!-- Hourly Forecast -->
+
+<section class="hourly">
+
+<h3>24-Hour Forecast</h3>
+
+<!-- 24-Hour Forecast -->
+
+<div class="hourly-container">
+
+    <div class="hourly-card active">
+        <h4>Now</h4>
+        <i class="fa-solid fa-cloud-sun hourly-icon"></i>
+        <h3>32°</h3>
+    </div>
+
+    <div class="hourly-card">
+        <h4>2 PM</h4>
+        <i class="fa-solid fa-sun hourly-icon"></i>
+        <h3>34°</h3>
+    </div>
+
+    <div class="hourly-card">
+        <h4>4 PM</h4>
+        <i class="fa-solid fa-cloud hourly-icon"></i>
+        <h3>33°</h3>
+    </div>
+
+    <div class="hourly-card">
+        <h4>6 PM</h4>
+        <i class="fa-solid fa-cloud-rain hourly-icon"></i>
+        <h3>30°</h3>
+    </div>
+
+    <div class="hourly-card">
+        <h4>8 PM</h4>
+        <i class="fa-solid fa-cloud-moon hourly-icon"></i>
+        <h3>28°</h3>
+    </div>
+
+    <div class="hourly-card">
+        <h4>10 PM</h4>
+        <i class="fa-solid fa-moon hourly-icon"></i>
+        <h3>27°</h3>
+    </div>
+
+</div>
+
+</section>
+
+<!-- Weather Details -->
+
+<section class="details">
+
+<div class="detail-card">
+
+<i class="fa-solid fa-droplet"></i>
+
+<h4>Humidity</h4>
+
+<h2>68%</h2>
+
+</div>
+
+<div class="detail-card">
+
+<i class="fa-solid fa-wind"></i>
+
+<h4>Wind</h4>
+
+<h2>12 km/h</h2>
+
+</div>
+
+<div class="detail-card">
+
+<i class="fa-solid fa-gauge-high"></i>
+
+<h4>Pressure</h4>
+
+<h2>1008 hPa</h2>
+
+</div>
+
+<div class="detail-card">
+
+<i class="fa-solid fa-eye"></i>
+
+<h4>Visibility</h4>
+
+<h2>10 km</h2>
+
+</div>
+
+</section>
+
+</main>
+
+</div>
+
+<script src="../js/liveweather.js"></script>
+</body>
+</html>
