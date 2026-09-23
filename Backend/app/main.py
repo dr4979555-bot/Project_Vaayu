@@ -112,6 +112,7 @@ if allowed_origins_env:
     ]
 else:
     origins = [
+        "https://project-vaayu-five.vercel.app",
         "http://localhost:3000",
         "http://localhost:5173",
         "http://127.0.0.1:3000",
@@ -221,3 +222,4 @@ app.include_router(
     prefix="/api/v1/ml",
     tags=["Machine Learning"],
 )
+
