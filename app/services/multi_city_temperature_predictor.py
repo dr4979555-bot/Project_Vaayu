@@ -9,7 +9,7 @@ from app.services.weather_service import get_hourly_weather
 
 
 MODEL_PATH = (
-    "models/multi_city_random_forest_temperature_model.joblib"
+    "models/multi_city_random_forest_temperature_deployment.joblib"
 )
 
 
